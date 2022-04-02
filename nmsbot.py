@@ -35,7 +35,7 @@ async def sendnotif(user_id):
     if msgdata['Severity'] == 'critical':
         color = discord.Colour.red()
     elif msgdata['Severity'] == 'warning':
-        color = discord.Colour.yellow()
+        color = discord.Colour.orange()
     else:
         color = discord.Colour.default()
     embed = discord.Embed(author=data['hostname'], color=color, title=data['title'], description=data['msg'], timestamp=datetime.datetime.strptime(data['timestamp'], '%Y-%m-%d %H:%M:%S'))
