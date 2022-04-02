@@ -13,7 +13,6 @@ print('https://github.com/samicrusader/librenms-discord-notifier')
 
 quart = Quart(__name__)
 
-
 @quart.route('/send/<int:user_id>', methods=['POST'])
 async def sendnotif(user_id):
     user = bot.get_user(int(user_id))
@@ -55,19 +54,6 @@ async def on_ready():
     print('Logged in as {0} <@!{1}>'.format(bot.user.name, str(bot.user.id)))
     await bot.change_presence(status=discord.Status.online)
 
-# @bot.event
-# async def on_command_error(ctx, error):
-#    em = embedgen.error(error, bot)
-#    await ctx.send('Something happened.', embed=em)
-
-
-@bot.command()
-async def timer(ctx, time: int):
-    """async timer test"""
-    await ctx.send('waiting')
-    for x in range(0, time):
-        await asyncio.sleep(1)
-# </Bot>
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
